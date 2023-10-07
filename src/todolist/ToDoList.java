@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class ToDoList {
-	we are the champions 
 	private List<Task> tasks;
 
 	public ToDoList() {
