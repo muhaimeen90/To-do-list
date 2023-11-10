@@ -36,11 +36,17 @@ public class Myman {
 				break;
 
 			case "2":
-				// Implement marking a task as completed
+				System.out.print("Enter task name to mark as completed: ");
+				String taskNameToMarkCompleted = scanner.nextLine();
+				taskManager.getTodoList().markTaskAsCompletedByName(taskNameToMarkCompleted);
 				break;
 
+
+
 			case "3":
-				// Implement removing a task
+				System.out.print("Enter task name to remove: ");
+				String taskNameToRemove = scanner.nextLine();
+				taskManager.getTodoList().removeTaskByName(taskNameToRemove);
 				break;
 
 			case "4":

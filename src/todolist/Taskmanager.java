@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Taskmanager {
@@ -16,8 +17,13 @@ public class Taskmanager {
 	    }
 
 	public void suggestTask() {
-		// Add your task suggestion algorithm here
-	}
+		List<Task> suggestedTasks = todoList.getSuggestedTasks();
+		if (!suggestedTasks.isEmpty()) {
+			Task suggestedTask = suggestedTasks.get(0);
+			System.out.println("Suggested task: " + suggestedTask.getName());
+		} else {
+			System.out.println("No tasks available for suggestion.");
+		}	}
 
 	public void saveToFile(String filename) {
 		File myfile = new File(filename);
@@ -32,7 +38,9 @@ public class Taskmanager {
 		FileWriter fileWriter = null;
 		try {
 			fileWriter = new FileWriter(filename);
-			fileWriter.write(todoList.toString());
+			for(Task x : todoList.getTasks()) {
+				fileWriter.write(x.getName()+" "+x.getDueDate()+" "+x.getPriority());
+			}
 			fileWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
