@@ -1,14 +1,16 @@
 package todolist;
 
+import java.time.LocalDate;
+
 public class Task {
 	private String name;
-	private String dueDate;
+	private LocalDate dueDate;
 	private String priority;
 	private boolean completed;
 
 	public Task(String name, String dueDate, String priority) {
 		this.name = name;
-		this.dueDate = dueDate;
+		this.dueDate = LocalDate.parse(dueDate);
 		this.priority = priority;
 		this.completed = false;
 	}
@@ -21,7 +23,7 @@ public class Task {
 		return name;
 	}
 
-	public String getDueDate() {
+	public LocalDate getDueDate() {
 		return dueDate;
 	}
 
